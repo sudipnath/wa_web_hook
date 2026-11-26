@@ -30,7 +30,7 @@ app.get('/webhook', (req, res) => {
   const token = req.query['hub.verify_token'];
   const challenge = req.query['hub.challenge'];
   
-  if (token === 'your_secure_webhook_token_123') {
+  if (token === 'whatsapp_token') {
     console.log('✅ Webhook verified');
     res.send(challenge);
   } else {
