@@ -13,16 +13,16 @@ app.get('/webhook', (req, res) => {
 
   if (mode === 'subscribe' && token === VERIFY_TOKEN) {
     res.setHeader("Content-Type", "text/plain");
-    res.status(200).send(challenge);
+    return res.status(200).send(challenge);
   } else {
-    res.sendStatus(403);
+    return res.sendStatus(403);
   }
 });
 
 // Incoming Messages (POST)
 app.post('/webhook', (req, res) => {
   console.log('Incoming webhook:', JSON.stringify(req.body, null, 2));
-  res.sendStatus(200);
+  return res.sendStatus(200);
 });
 
 const PORT = process.env.PORT || 3000;
