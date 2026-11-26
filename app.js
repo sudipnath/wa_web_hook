@@ -12,6 +12,7 @@ app.get('/webhook', (req, res) => {
   const challenge = req.query['hub.challenge'];
 
   if (mode === 'subscribe' && token === VERIFY_TOKEN) {
+    res.setHeader("Content-Type", "text/plain");
     res.status(200).send(challenge);
   } else {
     res.sendStatus(403);
